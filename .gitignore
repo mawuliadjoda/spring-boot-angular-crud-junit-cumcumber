@@ -40,3 +40,39 @@ angular-ngrx-crud/typings
 # System files
 .DS_Store
 Thumbs.db
+
+#                -------------------------------------------------------
+
+HELP.md
+spring-boot-crud/target/
+spring-boot-crud/!.mvn/wrapper/maven-wrapper.jar
+spring-boot-crud/!**/src/main/**/target/
+spring-boot-crud/!**/src/test/**/target/
+
+### STS ###
+spring-boot-crud/.apt_generated
+spring-boot-crud/.classpath
+spring-boot-crud/.factorypath
+spring-boot-crud/.project
+spring-boot-crud/.settings
+spring-boot-crud/.springBeans
+spring-boot-crud/.sts4-cache
+
+### IntelliJ IDEA ###
+spring-boot-crud/.idea
+spring-boot-crud/*.iws
+spring-boot-crud/*.iml
+spring-boot-crud/*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+spring-boot-crud/build/
+spring-boot-crud/!**/src/main/**/build/
+spring-boot-crud/!**/src/test/**/build/
+
+### VS Code ###
+spring-boot-crud/.vscode/
