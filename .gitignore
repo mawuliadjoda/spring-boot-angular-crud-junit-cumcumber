@@ -1,0 +1,42 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+angular-ngrx-crud/dist
+angular-ngrx-crud/tmp
+angular-ngrx-crud/out-tsc
+angular-ngrx-crud/bazel-out
+
+# Node
+angular-ngrx-crud/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+angular-ngrx-crud/.vscode/*
+angular-ngrx-crud/!.vscode/settings.json
+angular-ngrx-crud/!.vscode/tasks.json
+angular-ngrx-crud/!.vscode/launch.json
+angular-ngrx-crud/!.vscode/extensions.json
+angular-ngrx-crud/.history/*
+
+# Miscellaneous
+angular-ngrx-crud/.angular/cache
+angular-ngrx-crud/.sass-cache/
+angular-ngrx-crud/connect.lock
+angular-ngrx-crud/coverage
+angular-ngrx-crud/libpeerconnection.log
+angular-ngrx-crud/testem.log
+angular-ngrx-crud/typings
+
+# System files
+.DS_Store
+Thumbs.db
