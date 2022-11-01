@@ -6,8 +6,8 @@ import com.esprit.springbootcrud.exception.MyCrudException;
 import com.esprit.springbootcrud.exception.MyCrudExceptionEnum;
 import com.esprit.springbootcrud.repository.PharmacyRepository;
 import com.esprit.springbootcrud.service.PharmacyService;
+import com.esprit.springbootcrud.service.mapper.PharmacyMapper;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,20 +17,20 @@ import java.util.List;
 public class PharmacyServiceImpl implements PharmacyService {
     private final PharmacyRepository pharmacyRepository;
 
-    private static final ModelMapper modelMapper =  new ModelMapper();
+    private final PharmacyMapper pharmacyMapper;
 
     @Override
     public List<PharmacyDTO> findAll() {
         return pharmacyRepository.findAll()
                 .stream()
-                .map(pharmacy -> modelMapper.map(pharmacy, PharmacyDTO.class))
+                .map(pharmacyMapper::mapToDTO)
                 .toList();
     }
 
     @Override
     public PharmacyDTO save(PharmacyDTO pharmacyDTO) {
-        Pharmacy pharmacy = pharmacyRepository.save(modelMapper.map(pharmacyDTO, Pharmacy.class));
-        return modelMapper.map(pharmacy, PharmacyDTO.class);
+        Pharmacy pharmacy = pharmacyRepository.save(pharmacyMapper.mapToEntity(pharmacyDTO));
+        return pharmacyMapper.mapToDTO(pharmacy);
     }
 
     @Override
@@ -38,8 +38,8 @@ public class PharmacyServiceImpl implements PharmacyService {
         if (pharmacyRepository.existsById(pharmacyDTO.getId())) {
             throw new MyCrudException(MyCrudExceptionEnum.PHARMACY_NOT_FOUND, "Pharmacy not found");
         }
-        Pharmacy pharmacy = pharmacyRepository.save(modelMapper.map(pharmacyDTO, Pharmacy.class));
-        return modelMapper.map(pharmacy, PharmacyDTO.class);
+        Pharmacy pharmacy = pharmacyRepository.save(pharmacyMapper.mapToEntity(pharmacyDTO));
+        return pharmacyMapper.mapToDTO(pharmacy);
     }
 
     @Override
