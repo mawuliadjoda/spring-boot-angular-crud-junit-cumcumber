@@ -2,6 +2,7 @@ package com.esprit.springbootcrud.entity;
 
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -9,8 +10,10 @@ import javax.persistence.*;
 @Table(name = "pharmacy")
 @Data
 public class Pharmacy {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
     private Long id;
 
     private String name;
