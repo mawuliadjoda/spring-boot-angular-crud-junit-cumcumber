@@ -1,12 +1,12 @@
 package com.esprit.springbootcrud.dto;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
-@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@RequiredArgsConstructor
+@Setter
 public class PharmacyDTO {
     private Long id;
 

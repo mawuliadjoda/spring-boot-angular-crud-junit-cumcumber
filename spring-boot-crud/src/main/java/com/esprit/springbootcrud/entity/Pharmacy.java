@@ -1,14 +1,21 @@
 package com.esprit.springbootcrud.entity;
 
 
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.*;
 
 import javax.persistence.*;
 
+
+
+
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
 @Entity
 @Table(name = "pharmacy")
-@Data
 public class Pharmacy {
 
     @Id

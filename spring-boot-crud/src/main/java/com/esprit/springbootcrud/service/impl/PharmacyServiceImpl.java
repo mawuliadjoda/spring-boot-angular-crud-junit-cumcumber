@@ -1,5 +1,6 @@
 package com.esprit.springbootcrud.service.impl;
 
+
 import com.esprit.springbootcrud.dto.PharmacyDTO;
 import com.esprit.springbootcrud.entity.Pharmacy;
 import com.esprit.springbootcrud.exception.MyCrudException;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 @RequiredArgsConstructor
 public class PharmacyServiceImpl implements PharmacyService {
@@ -21,10 +23,7 @@ public class PharmacyServiceImpl implements PharmacyService {
 
     @Override
     public List<PharmacyDTO> findAll() {
-        return pharmacyRepository.findAll()
-                .stream()
-                .map(pharmacyMapper::mapToDTO)
-                .toList();
+        return pharmacyMapper.mapToDTOS(pharmacyRepository.findAll());
     }
 
     @Override
