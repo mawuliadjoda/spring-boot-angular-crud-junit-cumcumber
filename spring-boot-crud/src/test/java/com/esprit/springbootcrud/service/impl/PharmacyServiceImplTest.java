@@ -11,10 +11,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @RequiredArgsConstructor
@@ -40,16 +41,18 @@ class PharmacyServiceImplTest {
                         .lat(12.3)
                         .build()
         );
-        // When
         List<Pharmacy> pharmaciesEnTities = pharmacyMapper.mapToEntities(existingPharmacies);
-        Mockito.when(pharmacyMapper.mapToDTOS(pharmaciesEnTities)).thenReturn(existingPharmacies);
 
-        Mockito.when(pharmacyRepository.findAll()).thenReturn(pharmaciesEnTities);
 
+        // When
+        when(pharmacyMapper.mapToDTOS(pharmaciesEnTities)).thenReturn(existingPharmacies);
+        when(pharmacyRepository.findAll()).thenReturn(pharmaciesEnTities);
+
+        // Test
         List<com.esprit.springbootcrud.dto.PharmacyDTO> pharmacies = pharmacyService.findAll();
-        Mockito.verify(pharmacyRepository, Mockito.times(1)).findAll();
 
-
+        // Then
+        verify(pharmacyRepository, times(1)).findAll();
         Assertions.assertThat(existingPharmacies).containsExactlyElementsOf(pharmacies);
 
     }
