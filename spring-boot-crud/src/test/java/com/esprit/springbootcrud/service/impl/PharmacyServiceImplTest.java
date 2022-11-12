@@ -49,11 +49,11 @@ class PharmacyServiceImplTest {
         when(pharmacyRepository.findAll()).thenReturn(pharmaciesEnTities);
 
         // Test
-        List<com.esprit.springbootcrud.dto.PharmacyDTO> pharmacies = pharmacyService.findAll();
+        List<PharmacyDTO> pharmacies = pharmacyService.findAll();
 
         // Then
         verify(pharmacyRepository, times(1)).findAll();
-        Assertions.assertThat(existingPharmacies).containsExactlyElementsOf(pharmacies);
+        Assertions.assertThat(existingPharmacies).usingRecursiveFieldByFieldElementComparator().containsExactlyElementsOf(pharmacies);
 
     }
 

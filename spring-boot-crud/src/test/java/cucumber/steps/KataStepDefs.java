@@ -17,13 +17,12 @@ import io.restassured.specification.RequestSpecification;
 import net.minidev.json.JSONObject;
 import org.apache.http.HttpStatus;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@ActiveProfiles("test")
+
 public class KataStepDefs {
 
     private static Response response;
@@ -72,7 +71,7 @@ public class KataStepDefs {
 
         List<String> expectedKataNames = table.asList().subList(1, table.height());
 
-        for (String expectedKataName: expectedKataNames) {
+        for (String expectedKataName : expectedKataNames) {
             boolean nameFound = actualKatas.stream()
                     .anyMatch(kata -> kata.getName().equals(expectedKataName));
             assertThat(nameFound).isTrue();

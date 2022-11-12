@@ -34,6 +34,7 @@ class SpringBootCrudApplicationTest {
                 .andDo(print())
                 .andExpect(status().is(HttpStatus.CREATED.value()))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value("1"));
+                .andExpect(jsonPath("$.id").value("1"))
+                .andExpect(jsonPath("$.name").value("John"));
     }
 }
